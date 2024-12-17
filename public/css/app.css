@@ -1,5 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
+    background-color: #edf2fb;
 }
 
 .table {
@@ -7,13 +8,120 @@ body {
     padding: 40px;
 }
 
-.table-emprestimos {
-    background-color: #e6eef7;
+.table-emprestimos, .table-users, .table-books {
+    background-color: #fff;
     padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
+    border: none !important;
+}
+
+.table th, .table td {
+    border: none;
+    padding: 10px;
+}
+
+.table thead {
+    height: 60px;
+    border: none !important;
+}
+
+.table thead tr td {
+    background-color: #caf0f8;
 }
 
 .tool-items {
-    background-color: #e6eef7;
+    background-color: #fff;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
+}
+
+/* Cards */
+/* Customizando o tamanho e a margem dos cards */
+.card {
+    border-radius: 15px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 0;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-usuario:hover {
+    background: linear-gradient(to bottom, #1e96fc, #e7f0f8, #edf6f9);
+}
+
+.card-livros:hover {
+    background: linear-gradient(to bottom, #5cf3c6, #dfedfa, #edf6f9);
+}
+
+.card-class-livros:hover {
+    background: linear-gradient(to bottom, #ff6b35, #ffeedd, #edf6f9);
+}
+
+.card-emprestimo:hover {
+    background: linear-gradient(to bottom, #736ced, #cdc1ff, #edf6f9);
+}
+
+/* Buttons dos cards */
+
+.btn-cadusuario {
+    background: linear-gradient(120deg, #1e96fc, #b0d4f3);
+    border: 0;
+    width: 100%;
+    margin-top: 100px;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.btn-cadusuario:hover {
+    color: #fff;
+}
+
+.btn-cadlivros {
+    background: linear-gradient(120deg, #5cf3c6, #b5f5e2);
+    border: 0;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.btn-classificacao {
+    background: linear-gradient(120deg, #ff6b35, #f8bfab);
+    border: 0;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.btn-emprestimo {
+    background: linear-gradient(120deg, #736ced, #c0bdf8);
+    border: 0;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Tornar os cards mais compactos em telas menores */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin: 20px;
+    }
 }
