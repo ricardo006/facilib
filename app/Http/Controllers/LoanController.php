@@ -27,12 +27,24 @@ class LoanController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'data_devolucao.after_or_equal' => 'A data de devolução não pode ser anterior à data atual.',
+            'status.in' => 'O status fornecido é inválido. Use "Em andamento", "Atrasado" ou "Devolvido".',
+            'user_id.required' => 'O usuário é obrigatório.',
+            'book_id.required' => 'O livro é obrigatório.',
+            'data_devolucao.required' => 'A data de devolução é obrigatória.',
+            'data_devolucao.date' => 'A data de devolução deve ser uma data válida.',
+            'data_devolucao.date_format' => 'A data de devolução deve estar no formato YYYY-MM-DD.',
+            'user_id.exists' => 'O usuário selecionado não existe.',
+            'book_id.exists' => 'O livro selecionado não existe.',
+        ];
+
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'book_id' => 'required|exists:books,id',
-            'data_devolucao' => 'required|date|date_format:Y-m-d',
+            'data_devolucao' => 'required|date|date_format:Y-m-d|after_or_equal:today',
             'status' => 'required|in:Em andamento,Atrasado,Devolvido',
-        ]);
+        ], $messages);
 
         $book = Book::find($request->book_id );
 
@@ -64,8 +76,14 @@ class LoanController extends Controller
             'status' => 'required|in:Em andamento,Atrasado,Devolvido'
         ]);
 
+        $loan = Loan::where('id', $id)->first();
+
+        $status = $loan->data_devolucao < now() && $loan->status != 'Devolvido' 
+            ? 'Atrasado' 
+            : $request->status;
+
         Loan::where('id', $id)->update([
-            'status' => $request->status,
+            'status' => $status,
             'data_devolucao_real' => $request->status === 'Devolvido' ? now() : null,
         ]);
 
