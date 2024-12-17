@@ -14,24 +14,25 @@
             color: #14213d;
             font-weight: 500;
             padding: 10px 20px;
-            height: 70px;
+            height: 80px;
             z-index: 1000;
             width: 100%;
             border-radius: 0px 0px 20px 20px;
+            backdrop-filter: blur(5px);
         }
 
         .app-bar a {
-            color: #14213d;
+            color: #1b4965;
             text-decoration: none;
             margin-right: 20px;
             transition: all 0.3s ease;
         }
 
         .app-bar a:hover {
-            background-color: #1d3557;
+            background-color: #1b4965;
             padding: 10px 20px;
             border-radius: 40px;
-            color: #d9ecff;
+            color: #95c7f7;
             transition: all .3s ease-in;
         }
 
@@ -55,6 +56,7 @@
                 flex-direction: column;
                 width: 90%;  
                 gap: 6px;
+                background-color: transparent !important;
             }
         }
 
