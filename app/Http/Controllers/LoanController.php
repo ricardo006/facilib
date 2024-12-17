@@ -57,4 +57,25 @@ class LoanController extends Controller
 
         return redirect()->route('loans.index')->with('success', 'Empréstimo registrado com sucesso!');
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'status' => 'required|in:Em andamento,Atrasado,Devolvido'
+        ]);
+
+        Loan::where('id', $id)->update([
+            'status' => $request->status,
+            'data_devolucao_real' => $request->status === 'Devolvido' ? now() : null,
+        ]);
+
+        if ($request->status === 'Devolvido') {
+            $loan = Loan::where('id', $id)->first();
+            $loan->book->update([
+                'situacao' => 'Disponível',
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Status de empréstimo atualizado com sucesso!');
+    }
 }
