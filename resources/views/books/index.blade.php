@@ -13,7 +13,16 @@
         </div>
     </div>
 
-    <table class="table">
+    @foreach (['success', 'error'] as $msg)
+        @if(session($msg))
+            <div class="alert alert-{{ $msg == 'success' ? 'success' : 'danger' }} alert-dismissible fade show" role="alert">
+                {{ session($msg) }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    @endforeach
+
+    <table class="table table-books">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -33,7 +42,7 @@
                     <td>{{ $book->situacao }}</td>
                     <td>{{ $book->genre->nome }}</td>
                     <td>
-                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary btn-sm">Editar</a>
                         <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
