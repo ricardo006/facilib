@@ -1,0 +1,19 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.table {
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.table-emprestimos {
+    background-color: #e6eef7;
+    padding: 20px;
+}
+
+.tool-items {
+    background-color: #e6eef7;
+    border-radius: 10px;
+    padding: 20px;
+}
