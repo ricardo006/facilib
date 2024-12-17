@@ -1,0 +1,40 @@
+@extends('layouts.app')
+
+@section('title', 'Livros')
+
+@section('content')
+    <h1>Livros</h1>
+    <a href="{{ route('books.create') }}" class="btn btn-primary mb-3">Adicionar Livro</a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Autor</th>
+                <th>Número de Registro</th>
+                <th>Situação</th>
+                <th>Gênero</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($books as $book)
+                <tr>
+                    <td>{{ $book->nome }}</td>
+                    <td>{{ $book->autor }}</td>
+                    <td>{{ $book->numero_registro }}</td>
+                    <td>{{ $book->situacao }}</td>
+                    <td>{{ $book->genre->nome }}</td>
+                    <td>
+                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endsection
