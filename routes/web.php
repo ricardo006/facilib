@@ -5,9 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('welcome');
-});
+})->name('dashboard');
 
 Route::prefix('users')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('users.index');
@@ -36,5 +36,6 @@ Route::prefix('loans')->group(function () {
     Route::get('/{loan}', [LoanController::class, 'show'])->name('loans.show');
     Route::get('/{loan}/edit', [LoanController::class, 'edit'])->name('loans.edit');
     Route::put('/{loan}', [LoanController::class, 'update'])->name('loans.update');
+    Route::match(['put', 'patch'],'/{id}/update-status', [LoanController::class, 'updateStatus'])->name('loans.updateStatus');
     Route::delete('/{loan}', [LoanController::class, 'destroy'])->name('loans.destroy');
 });
