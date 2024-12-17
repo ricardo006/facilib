@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="container mt-4">
-    <h2>Gerenciar Usuários</h2>
+    <div class="tool-items d-flex justify-content-between align-items-center mb-3">
+        <div class="text-left">
+            <h4>Gerenciar Usuários</h4>
+        </div>
+        <div class="text-right">
+            <a href="{{ route('users.create') }}" class="btn btn-primary">Adicionar Novo Usuário</a>
+        </div>
+    </div>
 
     <!-- Exibir mensagens de sucesso -->
     @if(session('success'))
@@ -42,6 +49,5 @@
         </tbody>
     </table>
 
-    <a href="{{ route('users.create')}}" class="btn btn-primary"> Adicionar Novo Usuário</a>
 </div>
 @endsection

@@ -3,7 +3,12 @@
 @section('title', 'Registrar Empréstimo')
 
 @section('content')
-    <h1>Registrar Empréstimo</h1>
+
+    <div class="tool-items d-flex justify-content-between align-items-center mb-3">
+        <div class="text-left">
+            <h4>Registrar Empréstimo</h4>
+        </div>
+    </div>
     
     @if(session('error'))
         <div class="alert alert-danger">

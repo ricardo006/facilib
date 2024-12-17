@@ -3,7 +3,11 @@
 @section('title', 'Editar Livro')
 
 @section('content')
-    <h1>Editar Livro</h1>
+    <div class="tool-items d-flex justify-content-between align-items-center mb-3">
+        <div class="text-left">
+            <h4>Editar Livro</h4>
+        </div>
+    </div>
     
     <form action="{{ route('books.update', $book->id) }}" method="POST">
         @csrf

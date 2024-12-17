@@ -3,7 +3,12 @@
 @section('title', isset($user) ? 'Editar Usuário' : 'Criar Usuário')
 
 @section('content')
-    <h1>{{ isset($user) ? 'Editar Usuário' : 'Criar Usuário' }}</h1>
+
+    <div class="tool-items d-flex justify-content-between align-items-center mb-3">
+        <div class="text-left">
+            <h4>{{ isset($user) ? 'Editar Usuário' : 'Criar Usuário' }}</h4>
+        </div>
+    </div>
 
     <!-- Exibe os erros de validação -->
     @if ($errors->any())

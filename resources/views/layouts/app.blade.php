@@ -6,16 +6,74 @@
     <title>@yield('title', 'Facilib - Biblioteca Virtual')</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
     <style>
-        /* Aplica a fonte Inter a todo o corpo da página */
-        body {
-            font-family: 'Inter', sans-serif;
+        .app-bar {
+            background: transparent !important;
+            color: #14213d;
+            font-weight: 500;
+            padding: 10px 20px;
+            height: 70px;
+            z-index: 1000;
+            width: 100%;
+            border-radius: 0px 0px 20px 20px;
+        }
+
+        .app-bar a {
+            color: #14213d;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .app-bar a:hover {
+            background-color: #1d3557;
+            padding: 10px 20px;
+            border-radius: 40px;
+            color: #d9ecff;
+            transition: all .3s ease-in;
+        }
+
+        .app-bar-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 10px;
+            background: linear-gradient(to right,  #d9ecff, #e8f3ff, #edf9ff);
+            border: 2px solid #d9ecff;
+            border-radius: 30px;
+            width: 40%;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .app-bar-content {
+                display: flex;
+                flex-direction: column;
+                width: 90%;  
+                gap: 6px;
+            }
+        }
+
+        .app-content {
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <nav class="app-bar">
+        <div class="app-bar-content">
+            <a href="{{ route('dashboard') }}">Dashboard</a>
+            <a href="{{ route('loans.index') }}">Empréstimos</a>
+            <a href="{{ route('books.index') }}">Livros</a>
+            <a href="{{ route('users.index') }}">Usuários</a>
+        </div>
+    </nav>
+
+    <div class="app-content container">
         @yield('content')
     </div>
 
