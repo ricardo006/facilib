@@ -18,7 +18,7 @@
         </div>
     @endif
     
-    <table class="table table-striped">
+    <table class="table table-users">
         <thead>
             <tr>
                 <th>#</th>
