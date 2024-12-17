@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Loan;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,7 @@ class BookController extends Controller
         Book::create($validated);
 
         return redirect()->route('books.index')
-            ->with('success','Livro cadastrado com sucesso!');
+            ->with('success', 'Livro cadastrado com sucesso!');
     }
 
     public function edit(Book $book)
@@ -54,22 +55,36 @@ class BookController extends Controller
 
     public function update(Request $request, Book $book)
     {
+        $messages = [
+            'nome.required' => 'O campo nome é obrigatório.',
+            'autor.required' => 'O campo autor é obrigatório.',
+            'numero_registro.required' => 'O campo numero registro é obrigatório.',
+            'numero_registro.unique' => 'O número de registro já existe.',
+        ];
+
         $request->validate([
             'nome'=> 'required',
             'autor'=> 'required',
             'numero_registro' => 'required|unique:books,numero_registro,' . $book->id,
             'situacao' => 'required',
             'genero_id' => 'required|exists:genres,id',
-        ]);
+        ], $messages);
 
         $book ->update($request->all());
-        return redirect()->route('books.index')->with('success','Livro atualizado com sucesso!');
+        return redirect()->route('books.index')->with('success', 'Livro atualizado com sucesso!');
     }
 
     public function destroy(Book $book)
     {
+        $existingLoan = Loan::where('book_id', $book->id)
+            ->whereIn('status', ['Em andamento', 'Emprestado'])
+            ->first();
+
+        if($existingLoan) 
+            return redirect()->route('books.index')->with('error', 'Este livro não pode ser exclúido, pois está emprestado.');
+
         $book->delete();
-        return redirect()->route('books.index')->with('success','');
+        return redirect()->route('books.index')->with('success', 'Registro de livro excluído com sucesso!');
     }
 }
 
