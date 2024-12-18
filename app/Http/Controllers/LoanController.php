@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Models\User;
 use App\Models\Book;
+use App\Services\LoanService;
 use Illuminate\Http\Request;
 
 class LoanController extends Controller
 {
+    protected $loanService;
+
+    // Injetando LoanService
+    public function __construct(LoanService $loanService)
+    {
+        $this->loanService = $loanService;
+    }
+
     public function index()
     {
         $loans = Loan::with(['user', 'book'])->get();
@@ -23,6 +32,12 @@ class LoanController extends Controller
         $noAvailableBooks = $books->isEmpty();
 
         return view('loans.create', compact('users','books', 'noAvailableBooks'));
+    }
+
+    public function show(Loan $loan)
+    {
+        $user = User::find($loan->user_id);
+        return view('loans.show', compact('loan','user'));
     }
 
     public function store(Request $request)
@@ -46,26 +61,7 @@ class LoanController extends Controller
             'status' => 'required|in:Em andamento,Atrasado,Devolvido',
         ], $messages);
 
-        $book = Book::find($request->book_id );
-
-        $existingLoan = Loan::where('book_id', $book->id)
-            ->where('status', ['Em andamento', 'Emprestado'])
-            ->first();
-        
-        if( $existingLoan )
-            return redirect()->route('loans.create')->with('error', 'Este livro já está emprestado');
-
-        $loan = Loan::create([
-            'user_id' => $request->user_id,
-            'book_id' => $request->book_id,
-            'data_devolucao' => $request->data_devolucao,
-            'data_devolucao_real' => null, 
-            'status' => 'Em andamento',
-        ]);
-
-        $book = Book::find($request->book_id);
-        $book->situacao = 'Emprestado';
-        $book->save();
+        $loan = $this->loanService->createLoan($request);
 
         return redirect()->route('loans.index')->with('success', 'Empréstimo registrado com sucesso!');
     }
@@ -78,21 +74,7 @@ class LoanController extends Controller
 
         $loan = Loan::where('id', $id)->first();
 
-        $status = $loan->data_devolucao < now() && $loan->status != 'Devolvido' 
-            ? 'Atrasado' 
-            : $request->status;
-
-        Loan::where('id', $id)->update([
-            'status' => $status,
-            'data_devolucao_real' => $request->status === 'Devolvido' ? now() : null,
-        ]);
-
-        if ($request->status === 'Devolvido') {
-            $loan = Loan::where('id', $id)->first();
-            $loan->book->update([
-                'situacao' => 'Disponível',
-            ]);
-        }
+        $loan->loanService->updateLoanStatus($request, $loan);
 
         return redirect()->back()->with('success', 'Status de empréstimo atualizado com sucesso!');
     }
