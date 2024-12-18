@@ -3,6 +3,15 @@ body {
     background-color: #edf2fb;
 }
 
+.display-4 {
+    font-weight: 800;
+    color: #007ea7;
+}
+
+.lead {
+    color: #2f6690
+}
+
 .table {
     border-radius: 20px;
     padding: 40px;
@@ -51,57 +60,100 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.card-usuario {
+    background-color: #bde0fe;
+    border: 1px solid #548fc4;
+}
+
+.card-livros {
+    background-color: #a2f7dd;
+    border: 1px solid #22ac82;
+}
+
+.card-class-livros {
+    background-color: #f5beaa;
+    border: 1px solid #dd8160;
+}
+
+.card-emprestimo {
+    background-color: #b1adf7;
+    border: 1px solid #645dda;
+}
+
 .card-usuario:hover {
-    background: linear-gradient(to bottom, #1e96fc, #e7f0f8, #edf6f9);
+    background: linear-gradient(to bottom, #1e96fc, #bde0fe, #edf6f9);
 }
 
 .card-livros:hover {
-    background: linear-gradient(to bottom, #5cf3c6, #dfedfa, #edf6f9);
+    background: linear-gradient(to bottom, #5cf3c6, #a2f7dd, #edf6f9);
 }
 
 .card-class-livros:hover {
-    background: linear-gradient(to bottom, #ff6b35, #ffeedd, #edf6f9);
+    background: linear-gradient(to bottom, #ff6b35, #f5beaa, #edf6f9);
 }
 
 .card-emprestimo:hover {
-    background: linear-gradient(to bottom, #736ced, #cdc1ff, #edf6f9);
+    background: linear-gradient(to bottom, #736ced, #b1adf7, #edf6f9);
 }
 
 /* Buttons dos cards */
-
-.btn-cadusuario {
-    background: linear-gradient(120deg, #1e96fc, #b0d4f3);
-    border: 0;
-    width: 100%;
-    margin-top: 100px;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
+.btn-cadusuario:hover,
+.btn-cadlivros:hover,
+.btn-classificacao,
+.btn-emprestimo {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.btn-cadusuario:hover {
-    color: #fff;
+.btn-cadusuario {
+    background-color: #0d88f3;
+    color: #d4e5f3;
+    font-weight: 600;
+    border: 0;
+    height: 45px;
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 10px;
 }
 
 .btn-cadlivros {
-    background: linear-gradient(120deg, #5cf3c6, #b5f5e2);
+    background-color: #5cf3c6;
+    color: #044633;
+    font-weight: 600;    
     border: 0;
     width: 100%;
+    height: 40px;
     margin-top: 100px;
+    border-radius: 10px;
 }
 
 .btn-classificacao {
-    background: linear-gradient(120deg, #ff6b35, #f8bfab);
+    background-color:  #ff6b35;
+    color: #f7e7e2;
+    font-weight: 600;
     border: 0;
     width: 100%;
+    height: 40px;
     margin-top: 100px;
+    border-radius: 10px;
 }
 
 .btn-emprestimo {
-    background: linear-gradient(120deg, #736ced, #c0bdf8);
+    background-color: #8156f7;
+    color: #ccbbfa;
+    font-weight: 600;
     border: 0;
     width: 100%;
+    height: 40px;
     margin-top: 100px;
+}
+
+.btn-emprestimo:hover {
+    color: #ccbbfa;
+}
+
+.btn-cadusuario:hover {
+    color: #d4e5f3;
 }
 
 .card-title {
