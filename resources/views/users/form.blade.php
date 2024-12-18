@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', isset($user) ? 'Editar Usuário' : 'Criar Usuário')
+@section('title', isset($user) ? 'Editar Usuário' : 'Cadastrar Usuário')
 
 @section('content')
 
@@ -17,7 +17,7 @@
 
     <div class="tool-items d-flex justify-content-between align-items-center mb-3">
         <div class="text-left">
-            <h4>{{ isset($user) ? 'Editar Usuário' : 'Criar Usuário' }}</h4>
+            <h4>{{ isset($user) ? 'Editar Usuário' : 'Cadastrar Usuário' }}</h4>
         </div>
     </div>
    

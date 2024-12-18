@@ -2,6 +2,15 @@
 
 @section('content')
 <div class="container mt-4">
+    <!-- Exibir mensagens de sucesso -->
+    @if(session('success') || session('error'))
+        <div class="alert 
+            @if(session('success')) alert-success @endif 
+            @if(session('error')) alert-danger @endif">
+            {{ session('success') ?? session('error') }}
+        </div>
+    @endif
+
     <div class="tool-items d-flex justify-content-between align-items-center mb-3">
         <div class="text-left">
             <h4>Gerenciar Usuários</h4>
@@ -10,13 +19,6 @@
             <a href="{{ route('users.create') }}" class="btn btn-primary">Adicionar Novo Usuário</a>
         </div>
     </div>
-
-    <!-- Exibir mensagens de sucesso -->
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
     
     <table class="table table-users">
         <thead>
@@ -37,7 +39,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->numero_cadastro }}</td>
                 <td>
-                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Editar</a>
                     <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
