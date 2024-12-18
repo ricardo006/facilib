@@ -74,7 +74,7 @@ class LoanController extends Controller
 
         $loan = Loan::where('id', $id)->first();
 
-        $loan->loanService->updateLoanStatus($request, $loan);
+        $this->loanService->updateLoanStatus($request, $loan);
 
         return redirect()->back()->with('success', 'Status de empréstimo atualizado com sucesso!');
     }
