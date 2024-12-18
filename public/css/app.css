@@ -1,6 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #edf2fb;
+    background-color: #eff4fd;
 }
 
 .display-4 {
@@ -13,7 +13,7 @@ body {
 }
 
 .table {
-    border-radius: 20px;
+    border-radius: 0 0 20px 20px;
     padding: 40px;
 }
 
@@ -32,15 +32,20 @@ body {
 .table thead {
     height: 60px;
     border: none !important;
+    background-color: #054f79;
+    color: #caf0f8;
 }
 
 .table thead tr td {
-    background-color: #caf0f8;
+    color: #caf0f8;
+    border: none !important;
 }
 
 .tool-items {
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: #054f79;
+    color: #caf0f8;
+    border: none !important;
+    border-radius: 20px 20px 0 0;
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
 }
@@ -48,7 +53,7 @@ body {
 /* Cards */
 /* Customizando o tamanho e a margem dos cards */
 .card {
-    border-radius: 15px;
+    border-radius: 0 0 20px 20px;
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -63,21 +68,25 @@ body {
 .card-usuario {
     background-color: #bde0fe;
     border: 1px solid #548fc4;
+    border-radius: 20px;
 }
 
 .card-livros {
     background-color: #a2f7dd;
     border: 1px solid #22ac82;
+    border-radius: 20px;
 }
 
 .card-class-livros {
     background-color: #f5beaa;
     border: 1px solid #dd8160;
+    border-radius: 20px;
 }
 
 .card-emprestimo {
     background-color: #b1adf7;
     border: 1px solid #645dda;
+    border-radius: 20px;
 }
 
 .card-usuario:hover {
@@ -174,6 +183,5 @@ body {
 @media (max-width: 768px) {
     .card {
         width: 100%;
-        margin: 20px;
     }
 }

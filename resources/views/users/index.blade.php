@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <div class="tool-items d-flex justify-content-between align-items-center mb-3">
+    <div class="tool-items d-flex justify-content-between align-items-center">
         <div class="text-left">
             <h4>Gerenciar Usuários</h4>
         </div>
