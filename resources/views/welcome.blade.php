@@ -5,10 +5,10 @@
 @section('content')
     <div class="text-center mt-5">
         <h1 class="display-4">Bem-vindo à Biblioteca Virtual</h1>
-        <p class="lead">Aqui você pode cadastrar usuários, livros e consultar a classificação dos livros.</p>
+        <p class="lead">Aqui você pode cadastrar usuários, livros, consultar a classificação dos livros e etc. Aproveite!</p>
 
         <!-- Usando o grid do Bootstrap para tornar os cards responsivos -->
-        <div class="mt-4 row justify-content-center">
+        <div class="mt-5 row justify-content-center">
             <!-- Card Cadastrar Usuário -->
             <div class="col-md-3 col-sm-6 col-12">
                 <div class="card card-usuario" style="width: 100%;">
