@@ -92,12 +92,13 @@ Antes de iniciar, você precisa garantir que as seguintes ferramentas estão ins
    ```
 
    - Seeds incluídos adicionam dados como gêneros e livros.  
-   - Para executar seeds específicos:  
+   - Para executar seeds específicos (Atenção: execute primeiro GenreSeeder e depois BookSeeder):  
      ```bash
-     php artisan db:seed --class=BookSeeder
      php artisan db:seed --class=GenreSeeder
+     php artisan db:seed --class=BookSeeder
      ```
 
+   - Atenção: Para criar um empréstimo de livro é preciso ter usuário cadastrado  
 ---
 
 ## Execução do Projeto
