@@ -25,7 +25,7 @@
             color: #1b4965;
             text-decoration: none;
             margin-right: 20px;
-            transition: all 0.3s ease;
+            transition: all 0.24s ease;
         }
 
         .app-bar a:hover {
@@ -33,7 +33,7 @@
             padding: 10px 20px;
             border-radius: 40px;
             color: #95c7f7;
-            transition: all .3s ease-in;
+            transition: all .24s ease-in;
         }
 
         .app-bar-content {
@@ -42,8 +42,8 @@
             justify-content: center;
             height: 100%;
             padding: 10px;
-            background: linear-gradient(to right,  #d9ecff, #e8f3ff, #edf9ff);
-            border: 2px solid #d9ecff;
+            background: linear-gradient(to right,rgb(178, 225, 248),rgb(218, 230, 243),rgb(178, 225, 248));
+            border: 1.6px solid rgb(73, 143, 167);
             border-radius: 30px;
             width: 40%;
             margin: 0 auto;
