@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -17,12 +16,6 @@
         </div>
     @endif
 
-    <div class="tool-items d-flex justify-content-between align-items-center">
-        <div class="text-left">
-            <h4>Registrar Empréstimo</h4>
-        </div>
-    </div>
-
     @if($errors->any())
         <div class="alert alert-danger">
             <ul class="mb-0">
@@ -32,6 +25,12 @@
             </ul>
         </div>
     @endif
+
+    <div class="tool-items d-flex justify-content-between align-items-center">
+        <div class="text-left">
+            <h4>Registrar Empréstimo</h4>
+        </div>
+    </div>
 
     @if($noAvailableBooks)
         <div class="alert alert-warning">

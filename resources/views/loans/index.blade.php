@@ -54,7 +54,7 @@
                                 @csrf
                                 @method('PATCH')
                                 <input type="hidden" name="status" value="Devolvido">
-                                <button type="submit" class="btn btn-success btn-sm">Devolvido</button>
+                                <button type="submit" class="btn btn-devolvido btn-sm">Devolvido</button>
                             </form>
                         @endif
                     </td>

@@ -129,6 +129,45 @@ body {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.btn-devolvido {
+    background-color: #7de2d1;
+    color: #054f79;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 35px;
+}
+
+.btn-edit {
+    background-color: #2676ec;
+    color: #edf2fb;
+    border-radius: 10px;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 35px;
+    min-width: 60px;
+}
+
+.btn-edit:hover {
+    color: #edf2fb;
+}
+
+.btn-excluir {
+    background-color: #ff1632;
+    color: #edf2fb;
+    border-radius: 10px;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 35px;
+    min-width: 60px;
+}
+
+.btn-excluir:hover {
+    color: #edf2fb;
+}
+
 .btn-cadusuario {
     background-color: #0d88f3;
     color: #d4e5f3;

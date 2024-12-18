@@ -41,11 +41,11 @@
                     <td>{{ $book->situacao }}</td>
                     <td>{{ $book->genre->nome }}</td>
                     <td>
-                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-edit btn-sm">Editar</a>
                         <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            <button type="submit" class="btn btn-excluir btn-sm">Excluir</button>
                         </form>
                     </td>
                 </tr>
