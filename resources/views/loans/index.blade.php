@@ -16,7 +16,7 @@
             <h4>Empréstimos</h4>
         </div>
         <div class="text-right">
-            <a href="{{ route('loans.create') }}" class="btn btn-primary">Novo Empréstimo</a>
+            <a href="{{ route('loans.create') }}" class="btn btn-newloan">Novo Empréstimo</a>
         </div>
     </div>
     

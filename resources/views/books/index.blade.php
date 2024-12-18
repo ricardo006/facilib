@@ -17,7 +17,7 @@
             <h4>Livros</h4>
         </div>
         <div class="text-right">
-            <a href="{{ route('books.create') }}" class="btn btn-primary mb-3">Adicionar Livro</a>
+            <a href="{{ route('books.create') }}" class="btn btn-addlivro mb-3">Adicionar Livro</a>
         </div>
     </div>
 

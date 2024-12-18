@@ -16,7 +16,7 @@
             <h4>Gerenciar Usuários</h4>
         </div>
         <div class="text-right">
-            <a href="{{ route('users.create') }}" class="btn btn-primary">Adicionar Novo Usuário</a>
+            <a href="{{ route('users.create') }}" class="btn btn-newuser">Adicionar Novo Usuário</a>
         </div>
     </div>
     
