@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="text-center mt-5">
-        <h1 class="display-4">Bem-vindo à Biblioteca Virtual</h1>
+        <h1 class="display-4">Bem Vindo à Biblioteca Virtual</h1>
         <p class="lead">Aqui você pode cadastrar usuários, livros, consultar a classificação dos livros e etc. Aproveite!</p>
 
         <!-- Usando o grid do Bootstrap para tornar os cards responsivos -->

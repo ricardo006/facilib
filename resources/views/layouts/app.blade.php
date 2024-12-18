@@ -28,9 +28,10 @@
             transition: all 0.24s ease;
         }
 
-        .app-bar a:hover {
-            background-color: #1b4965;
-            padding: 10px 20px;
+        .app-bar a:hover,
+        .app-bar a.active {
+            background-color: #054f79;
+            padding: 10px 22px;
             border-radius: 40px;
             color: #95c7f7;
             transition: all .24s ease-in;
@@ -68,10 +69,10 @@
 <body>
     <nav class="app-bar">
         <div class="app-bar-content">
-            <a href="{{ route('dashboard') }}">Dashboard</a>
-            <a href="{{ route('loans.index') }}">Empréstimos</a>
-            <a href="{{ route('books.index') }}">Livros</a>
-            <a href="{{ route('users.index') }}">Usuários</a>
+            <a href="{{ route('dashboard') }}"  class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
+            <a href="{{ route('loans.index') }}"  class="{{ request()->routeIs('loans.index') ? 'active' : '' }}">Empréstimos</a>
+            <a href="{{ route('books.index') }}"  class="{{ request()->routeIs('books.index') ? 'active' : '' }}">Livros</a>
+            <a href="{{ route('users.index') }}"  class="{{ request()->routeIs('users.index') ? 'active' : '' }}">Usuários</a>
         </div>
     </nav>
 
