@@ -26,6 +26,7 @@ Antes de iniciar, você precisa garantir que as seguintes ferramentas estão ins
 - [Node.js](https://nodejs.org/) (versão 14 ou superior)
 - [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
 - [MySQL](https://www.mysql.com/downloads/) ou outro banco de dados compatível
+- [Laravel](https://laravel.com/) (versão 9 ou superior) - Framework PHP utilizado no projeto. Ele será instalado automaticamente ao rodar `composer install`.
 
 ## Configuração do Ambiente
 
@@ -75,7 +76,15 @@ DB_PASSWORD=sua_senha
 
 2. Execute as migrações e seeds:
 
+* Preparei seeds que adicionam diversos gêneros e livros.
+
 `php artisan migrate --seed`
+
+* Se preferir, execute de forma individual:
+
+`php artisan db:seed --class=BookSeeder`
+`php artisan db:seed --class=GenreSeeder`
+
 
 
 ## Execução do Projeto
