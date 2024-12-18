@@ -3,16 +3,6 @@
 @section('title', 'Livros')
 
 @section('content')
-    
-    <div class="tool-items d-flex justify-content-between align-items-center mb-3">
-        <div class="text-left">
-            <h4>Livros</h4>
-        </div>
-        <div class="text-right">
-            <a href="{{ route('books.create') }}" class="btn btn-primary mb-3">Adicionar Livro</a>
-        </div>
-    </div>
-
     @foreach (['success', 'error'] as $msg)
         @if(session($msg))
             <div class="alert alert-{{ $msg == 'success' ? 'success' : 'danger' }} alert-dismissible fade show" role="alert">
@@ -21,6 +11,15 @@
             </div>
         @endif
     @endforeach
+
+    <div class="tool-items d-flex justify-content-between align-items-center mb-3">
+        <div class="text-left">
+            <h4>Livros</h4>
+        </div>
+        <div class="text-right">
+            <a href="{{ route('books.create') }}" class="btn btn-primary mb-3">Adicionar Livro</a>
+        </div>
+    </div>
 
     <table class="table table-books">
         <thead>
