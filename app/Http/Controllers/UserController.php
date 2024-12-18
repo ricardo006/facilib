@@ -29,11 +29,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'name.required' => 'O campo nome é obrigatório.',
+            'email.required' => 'O campo email é obrigatório.',
+            'numero_cadastro.required' => 'O campo número cadastro é obrigatório.',
+        ];
+
         $request->validate([
             'name'  => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'numero_cadastro'   => 'required|unique:users',
-        ]);
+        ], $messages);
 
         $user = User::create($request->all());
 
@@ -61,11 +67,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $messages = [
+            'name.required' => 'O campo nome é obrigatório.',
+            'email.required' => 'O campo email é obrigatório.',
+            'numero_cadastro.required' => 'O campo número cadastro é obrigatório.',
+        ];
+
         $validatedData = $request->validate([
             'name'  => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'numero_cadastro'   => 'required|unique:users,numero_cadastro,' . $user->id,
-        ]);
+        ], $messages);
 
         $user ->update($validatedData);
         return redirect()->route('users.index')->with('success', 'Usuário atualizado com sucesso!');
@@ -76,6 +88,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $hasActiveLoans = $user->loans()->whereIn('status', ['Em andamento', 'Emprestado'])->exists();
+        
+        if ($hasActiveLoans) 
+            return redirect()->route('users.index')->with('error', 'Não é possível excluir o usuário enquanto houver livros emprestados com status "Em andamento" ou "Emprestado".');
+
         $user = User::find($user->id);
         $user->delete();
         
