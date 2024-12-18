@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('welcome');
 })->name('dashboard');
 

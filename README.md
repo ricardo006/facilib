@@ -2,7 +2,7 @@
 
 ![Dashboard](public/images/dashboard.png)
 
-Facilib é um sistema de biblioteca virtual desenvolvido com Laravel e Bootstrap, oferecendo funcionalidades como gestão de livros, usuários e empréstimos. Este guia detalha o processo de instalação e configuração do projeto, desde o início até a execução completa.
+Facilib é um sistema de biblioteca virtual desenvolvido com Laravel, PHP e Bootstrap, oferecendo funcionalidades como gestão de livros, usuários e empréstimos. Este guia detalha o processo de instalação e configuração do projeto, desde o início até a execução completa.
 
 ---
 
@@ -82,8 +82,9 @@ DB_PASSWORD=sua_senha
 
 * Se preferir, execute de forma individual:
 
-`php artisan db:seed --class=BookSeeder`
-`php artisan db:seed --class=GenreSeeder`
+`php artisan db:seed --class=BookSeeder` 
+ 
+`php artisan db:seed --class=GenreSeeder`  
 
 
 
@@ -95,7 +96,7 @@ DB_PASSWORD=sua_senha
 
 2. Acesse o projeto em seu nmavegador:
 
-http://localhost:8000/dashboard
+http://localhost:8000/
 
 ## Estrutura de Navegação
 
@@ -108,5 +109,5 @@ O sistema possui as seguintes seções principais:
 
 ## Sobre o Autor
 
-Nome: Ricardo Oliveira 
-Linkedin: https://www.linkedin.com/in/ricardo-o-441a22a5/
+Nome: Ricardo Oliveira  
+Linkedin: [https://www.linkedin.com/in/ricardo-o-441a22a5/](https://www.linkedin.com/in/ricardo-o-441a22a5/)
