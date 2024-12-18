@@ -1,6 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #eff4fd;
+    background-color: #d8e3f8;
 }
 
 .display-4 {
@@ -115,6 +115,13 @@ body {
     font-weight: 600;
 }
 
+.btn-addlivro:hover,
+.btn-newuser:hover,
+.btn-newloan:hover {
+    color: #054f79;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .btn-cadusuario:hover,
 .btn-cadlivros:hover,
 .btn-classificacao,
@@ -127,7 +134,7 @@ body {
     color: #d4e5f3;
     font-weight: 600;
     border: 0;
-    height: 45px;
+    height: 40px;
     width: 100%;
     margin-top: 100px;
     text-align: center;
