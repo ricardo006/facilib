@@ -5,10 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Loan;
 use App\Models\Genre;
+
+use App\Services\BookService;
+
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    protected $bookService;
+
+    public function __construct(BookService $bookService)
+    {
+        $this->bookService = $bookService;
+    }
+
     public function index()
     {
         $books = Book::all();
@@ -55,6 +65,9 @@ class BookController extends Controller
 
     public function update(Request $request, Book $book)
     {
+        if ($this->bookService->isBookLoaned($book)) 
+            return redirect()->route('books.index')->with('error', 'Não é possível editar o livro, pois está emprestado.');
+
         $messages = [
             'nome.required' => 'O campo nome é obrigatório.',
             'autor.required' => 'O campo autor é obrigatório.',
@@ -76,11 +89,7 @@ class BookController extends Controller
 
     public function destroy(Book $book)
     {
-        $existingLoan = Loan::where('book_id', $book->id)
-            ->whereIn('status', ['Em andamento', 'Emprestado'])
-            ->first();
-
-        if($existingLoan) 
+        if($this->bookService->isBookLoaned($book))
             return redirect()->route('books.index')->with('error', 'Este livro não pode ser exclúido, pois está emprestado.');
 
         $book->delete();
